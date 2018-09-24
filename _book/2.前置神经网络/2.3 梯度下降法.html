@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2.前馈神经网络 · GitBook</title>
+        <title>2.3 梯度下降法 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="2.1 网络结构.html" />
+    <link rel="next" href="2.4 神经网络的训练.html" />
     
     
-    <link rel="prev" href="../1.神经网络入门/readme.html" />
+    <link rel="prev" href="2.2 网络结构_代码部分.html" />
     
 
     </head>
@@ -115,7 +115,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3" data-path="readme.html">
+        <li class="chapter " data-level="1.3" data-path="readme.html">
             
                 <a href="readme.html">
             
@@ -155,7 +155,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="2.3 梯度下降法.html">
+        <li class="chapter active" data-level="1.3.3" data-path="2.3 梯度下降法.html">
             
                 <a href="2.3 梯度下降法.html">
             
@@ -390,7 +390,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >2.前馈神经网络</a>
+        <a href=".." >2.3 梯度下降法</a>
     </h1>
 </div>
 
@@ -405,7 +405,65 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="2&#x524D;&#x9988;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;">2.&#x524D;&#x9988;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</h1>
+                                <h1 id="23-&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;">2.3 &#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;</h1>
+<ul>
+<li><h4 id="&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x8BAD;&#x7EC3;">&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x8BAD;&#x7EC3;</h4>
+<p>&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x8BAD;&#x7EC3;&#xFF0C;&#x5176;&#x5B9E;&#x548C;&#x57FA;&#x4E8E;&#x7EDF;&#x8BA1;&#x7684;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x8BAD;&#x7EC3;&#x5F88;&#x76F8;&#x8FD1;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x719F;&#x6089;&#x56DE;&#x5F52;&#x7684;&#x8BDD;&#xFF0C;&#x4F60;&#x4F1A;&#x89C9;&#x5F97;bp&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x8BAD;&#x7EC3;&#x5F88;&#x7B80;&#x5355;&#x3002;</p>
+<p>&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;: &#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x6A21;&#x578B;&#x662F;&#x600E;&#x4E48;&#x5B66;&#x5230;&#x7684;&#xFF0C;&#x4EE5;&#x53CA;&#x5B83;&#x5B66;&#x5230;&#x4E86;&#x4EC0;&#x4E48;&#x3002;</p>
+<p>&#x4E3A;&#x7406;&#x89E3;BP&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x8BAD;&#x7EC3;&#x505A;&#x94FA;&#x57AB;&#x3002;</p>
+</li>
+<li><h4 id="&#x4E00;&#x5143;&#x7EBF;&#x6027;&#x56DE;&#x5F52;">&#x4E00;&#x5143;&#x7EBF;&#x6027;&#x56DE;&#x5F52;</h4>
+<p>&#x4E00;&#x5143;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x662F;&#x6240;&#x6709;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x4E2D;&#x6700;&#x7B80;&#x5355;&#x7684;&#x3002;</p>
+<p>&#x6837;&#x672C;:</p>
+</li>
+</ul>
+<p>&#x200B;    <img src="http://myphoto.mtianyan.cn/blog/180329/5BckL08ID3.png?imageslim" alt="mark"></p>
+<p>&#x200B;    &#x89C2;&#x5BDF;&#x5230;&#x5F88;&#x591A;&#x6570;&#x636E;&#x5BF9;&#xFF0C;&#x6709;x&#x6709;y&#x3002;</p>
+<p>&#x200B;    &#x89C2;&#x5BDF;&#x8BB0;&#x5F55;(&#x901A;&#x8FC7;&#x753B;&#x56FE;):</p>
+<p>&#x200B;    <img src="http://myphoto.mtianyan.cn/blog/180329/ahBl9aAjkK.png?imageslim" alt="mark"></p>
+<p>&#x200B;    &#x56FE;&#x4E2D;&#x6A2A;&#x5750;&#x6807;&#x4EE3;&#x8868;&#x65F6;&#x95F4;&#xFF0C;&#x5355;&#x4F4D;&#x662F;&#x79D2;&#x3002;&#x7EB5;&#x5750;&#x6807;&#x4EE3;&#x8868;&#x901F;&#x5EA6;&#xFF0C;&#x5355;&#x4F4D;&#x662F;&#x7C73;&#x6BCF;&#x79D2;&#x3002;</p>
+<p>&#x200B;    &#x53EF;&#x4EE5;&#x4ECE;&#x56FE;&#x4E2D;&#x76F4;&#x89C2;&#x7684;&#x770B;&#x5230;&#xFF0C;&#x65F6;&#x95F4;&#x548C;&#x901F;&#x5EA6;&#x6709;&#x4E00;&#x79CD;&#x7EBF;&#x6027;&#x5173;&#x7CFB;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C1D;&#x8BD5;&#x753B;&#x4E00;&#x6761;&#x76F4;&#x7EBF;&#xFF0C;&#x4ECE;&#x4E00;&#x5806;&#x70B9;&#x4E2D;&#x7A7F;&#x8D8A;&#x8FC7;&#x53BB;&#x3002;</p>
+<p>&#x200B;    <img src="http://myphoto.mtianyan.cn/blog/180329/a03LijhmL5.png?imageslim" alt="mark"></p>
+<p>&#x200B;    &#x8FD9;&#x6761;&#x76F4;&#x7EBF;&#x51E0;&#x4E4E;&#x53EF;&#x4EE5;&#x6EE1;&#x8DB3;&#x6240;&#x6709;&#x70B9;&#x3002;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x7528;&#x8FD9;&#x6761;&#x76F4;&#x7EBF;&#x6765;&#x63CF;&#x8FF0;&#x56FE;&#x7247;&#x4E0A;&#x7684;&#x6A2A;&#x7EB5;&#x5750;&#x6807;&#x5173;&#x7CFB;&#x3002;</p>
+<p>&#x200B;    &#x6A2A;&#x5750;&#x6807;&#x7528;x&#x6216;t&#x8868;&#x793A;&#xFF0C;&#x7EB5;&#x5750;&#x6807;&#x7528;y&#x6216;s&#x8868;&#x793A;&#x3002;</p>
+<p>&#x200B;    &#x6A2A;&#x7EB5;&#x5750;&#x6807;&#x7684;&#x5173;&#x7CFB;: y = wx+b</p>
+<p>&#x200B;    &#x56E0;&#x4E3A;&#x76F4;&#x7EBF;&#x5E76;&#x4E0D;&#x662F;&#x7A7F;&#x8FC7;&#x6240;&#x6709;&#x7684;&#x70B9;&#xFF0C;&#x4F1A;&#x5B58;&#x5728;&#x8BEF;&#x5DEE;&#x3002;</p>
+<p>&#x200B;    &#x8BEF;&#x5DEE;:</p>
+<p>&#x200B;    &#x53C2;&#x6570;e&#x4EE3;&#x8868;error&#xFF0C;&#x8868;&#x793A;&#x8BEF;&#x5DEE;</p>
+<blockquote>
+<p>y =wx+b+e</p>
+</blockquote>
+<p>&#x200B;    &#x6211;&#x4EEC;&#x53D6;&#x5B9A;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;w&#x548C;b&#x65F6;,&#x53EA;&#x8981;&#x5E26;&#x5165;x,y&#x5C31;&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;e.&#x4EA7;&#x751F;&#x5341;&#x4E2A;e.</p>
+<p>&#x200B;    &#x628A;&#x8868;&#x8FBE;&#x5F0F;&#x53D8;&#x4E3A;:</p>
+<p>&#x200B;    <img src="http://myphoto.mtianyan.cn/blog/180329/J0f0171ik8.png?imageslim" alt="mark"></p>
+<p>&#x200B;    &#x8FD9;&#x91CC;&#x7684;&#x4E0B;&#x6807;i&#x5C31;&#x8868;&#x793A;&#x7684;&#x662F;&#x7B2C;&#x51E0;&#x4E2A;&#x6837;&#x672C;: &#x4E5F;&#x5C31;&#x662F;y&#x7684;&#x771F;&#x5B9E;&#x503C;&#x51CF;&#x53BB;&#x6211;&#x4EEC;&#x7684;&#x9884;&#x6D4B;&#x503C;(&#x62DF;&#x5408;&#x503C;y&#x5E3D;&#x5B50;)</p>
+<p>&#x200B;    &#x5168;&#x5C40;&#x8BEF;&#x5DEE;&#x603B;&#x91CF;:</p>
+<p>&#x200B;    <img src="http://myphoto.mtianyan.cn/blog/180329/9mKAkE3983.png?imageslim" alt="mark"></p>
+<p>&#x200B;    &#x5C06;&#x6240;&#x6709;&#x5355;&#x4E2A;&#x6837;&#x672C;&#x7684;&#x8BEF;&#x5DEE;&#x8FDB;&#x884C;&#x7D2F;&#x52A0;&#x83B7;&#x5F97;&#x5168;&#x5C40;&#x8BEF;&#x5DEE;&#x603B;&#x91CF;&#x3002;</p>
+<blockquote>
+<p>&#x4F46;&#x662F;&#x65E0;&#x8BBA;&#x8FD9;&#x4E2A;e&#x662F;&#x6B63;&#x662F;&#x8D1F;&#x90FD;&#x662F;&#x8BEF;&#x5DEE;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x6B8B;&#x5DEE;&#x3002;&#x8FD9;&#x91CC;&#x7B80;&#x5355;&#x7684;&#x7D2F;&#x52A0;&#x5C31;&#x5B58;&#x5728;&#x6B63;&#x8D1F;&#x62B5;&#x6D88;&#x3002;</p>
+</blockquote>
+<p>&#x200B;    &#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;e&#x53D6;&#x7EDD;&#x5BF9;&#x503C;&#x6216;&#x53D6;&#x5E73;&#x65B9;&#x4FDD;&#x8BC1;&#x975E;&#x8D1F;&#x6570;&#x3002;</p>
+<p><img src="http://myphoto.mtianyan.cn/blog/180329/L92AfLiiCl.png?imageslim" alt="mark">    </p>
+<p>&#x5BF9;&#x4E8E;&#x7B2C;&#x4E8C;&#x884C;&#x8868;&#x8FBE;&#x5F0F;&#x8FDB;&#x884C;&#x5C55;&#x5F00;&#xFF0C;&#x5F97;&#x5230;&#x7B2C;&#x4E09;&#x884C;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</p>
+<blockquote>
+<p>&#x8868;&#x8FBE;&#x5F0F;&#x4E2D;&#x7684;x&#x4E0E;y&#x662F;&#x5E38;&#x6570;&#x3002;&#x91CC;&#x9762;&#x7684;w&#x548C;b&#x624D;&#x662F;&#x672A;&#x77E5;&#x6570;&#x3002;</p>
+</blockquote>
+<p>&#x200B;    &#x5BF9;&#x4E8E;&#x4E09;&#x5F0F;&#xFF0C;&#x63D0;&#x53D6;&#x516C;&#x56E0;&#x5F0F;&#x5E76;&#x5408;&#x5E76;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x5982;&#x4E0B;&#x56FE;&#x516C;&#x5F0F;&#x3002;</p>
+<pre><code> ![mark](http://myphoto.mtianyan.cn/blog/180329/J37dHABa9k.png?imageslim)
+</code></pre><blockquote>
+<p>&#x5176;&#x4E2D;&#x7684;ABCDEF&#x5168;&#x90E8;&#x90FD;&#x662F;&#x5E38;&#x6570;&#x7CFB;&#x6570;&#x3002;&#x672A;&#x77E5;&#x6570;&#x662F;w&#x548C;b</p>
+</blockquote>
+<p>&#x200B;    &#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x8981;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#x5C31;&#x662F;&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x5408;&#x9002;&#x7684;w&#x548C;b&#xFF0C;&#x4F7F;&#x5F97;loss&#x503C;&#x8D8A;&#x5C0F;&#x8D8A;&#x597D;&#x3002;</p>
+<p>&#x200B;    &#x8D8A;&#x63A5;&#x8FD1;0&#xFF0C;&#x8BF4;&#x660E;&#x6211;&#x4EEC;&#x62DF;&#x5408;&#x7684;&#x8BEF;&#x5DEE;&#x8D8A;&#x5C0F;&#x3002;&#x8981;&#x8BA9;&#x6211;&#x4EEC;&#x7684;&#x76F4;&#x7EBF;&#xFF0C;&#x5C3D;&#x53EF;&#x80FD;&#x79BB;&#x6837;&#x672C;&#x70B9;&#x8FD1;&#x3002;</p>
+<p>&#x200B;    <img src="http://myphoto.mtianyan.cn/blog/180329/L5em828ah5.png?imageslim" alt="mark"></p>
+<p>&#x200B;    &#x6211;&#x4EEC;&#x627E;&#x5230;&#x4E0A;&#x9762;&#x65B9;&#x7A0B;ABCDEF&#x7684;&#x8FD1;&#x4F3C;&#x65B9;&#x7A0B;:</p>
+<p>&#x200B;    <img src="http://myphoto.mtianyan.cn/blog/180329/h52fdkflFe.png?imageslim" alt="mark"></p>
+<p>&#x200B;    &#x8FD9;&#x4E2A;&#x56FE;&#x5F62;&#x5728;&#x4E09;&#x7EF4;&#x7A7A;&#x95F4;&#x4E2D;&#x50CF;&#x4E00;&#x4E2A;&#x7897;&#x3002;&#x548C;&#x4E8C;&#x7EF4;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x629B;&#x7269;&#x7EBF;&#x5F88;&#x50CF;&#xFF0C;&#x80AF;&#x5B9A;&#x5B58;&#x5728;&#x6781;&#x503C;&#xFF0C;&#x6781;&#x503C;&#x5728;&#x7897;&#x5E95;&#x3002;</p>
+<p>&#x200B;    &#x53EA;&#x8981;&#x6211;&#x4EEC;&#x6C42;&#x7684;&#x7897;&#x5E95;&#x7684;(x,y)&#x6211;&#x4EEC;&#x5C31;&#x6C42;&#x7684;&#x4E86;&#x6700;&#x4F73;&#x53C2;&#x6570;(w,b)&#xFF0C;&#x8FD9;&#x91CC;&#x53EA;&#x662F;&#x7B26;&#x53F7;&#x5B57;&#x6BCD;&#x4E0D;&#x540C;&#xFF0C;&#x610F;&#x4E49;&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;&#x53EA;&#x662F;&#x628A;&#x5176;&#x4E2D;&#x7684;w,b&#x66FF;&#x6362;&#x6210;&#x4E86;x&#x548C;y&#x3002;</p>
+<p>&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;&#x5177;&#x4F53;&#x53C2;&#x8003;&#xFF1A;<a href="https://www.jianshu.com/p/e5dfe52773e1" target="_blank">https://www.jianshu.com/p/e5dfe52773e1</a></p>
+<p>&#x200B;                       <a href="https://www.jianshu.com/p/bf50fc0aa9f3" target="_blank">https://www.jianshu.com/p/bf50fc0aa9f3</a></p>
 
                                 
                                 </section>
@@ -433,12 +491,12 @@
 
             
                 
-                <a href="../1.神经网络入门/readme.html" class="navigation navigation-prev " aria-label="Previous page: 1.神经网络入门">
+                <a href="2.2 网络结构_代码部分.html" class="navigation navigation-prev " aria-label="Previous page: 2.2 网络结构_代码部分">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="2.1 网络结构.html" class="navigation navigation-next " aria-label="Next page: 2.1 网络结构">
+                <a href="2.4 神经网络的训练.html" class="navigation navigation-next " aria-label="Next page: 2.4 神经网络的训练">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -449,7 +507,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.前馈神经网络","level":"1.3","depth":1,"next":{"title":"2.1 网络结构","level":"1.3.1","depth":2,"path":"2.前置神经网络/2.1 网络结构.md","ref":"2.前置神经网络/2.1 网络结构.md","articles":[]},"previous":{"title":"1.神经网络入门","level":"1.2","depth":1,"path":"1.神经网络入门/readme.md","ref":"1.神经网络入门/readme.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2.前置神经网络/readme.md","mtime":"2018-09-18T11:02:11.623Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-21T06:28:54.634Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.3 梯度下降法","level":"1.3.3","depth":2,"next":{"title":"2.4 神经网络的训练","level":"1.3.4","depth":2,"path":"2.前置神经网络/2.4 神经网络的训练.md","ref":"2.前置神经网络/2.4 神经网络的训练.md","articles":[]},"previous":{"title":"2.2 网络结构_代码部分","level":"1.3.2","depth":2,"path":"2.前置神经网络/2.2 网络结构_代码部分.md","ref":"2.前置神经网络/2.2 网络结构_代码部分.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2.前置神经网络/2.3 梯度下降法.md","mtime":"2018-09-20T14:48:56.826Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-21T06:28:54.634Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
