@@ -587,6 +587,127 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="423-&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x8FDB;&#x9636;inception-mobile-net">4.2.3 &#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x8FDB;&#x9636;(inception-mobile-net)</h1>
+<ul>
+<li><h3 id="inception-net">Inception-Net</h3>
+<ul>
+<li><p>&#x5DE5;&#x7A0B;&#x4F18;&#x5316; &#x2014; &#x540C;&#x6837;&#x7684;&#x53C2;&#x6570;&#x6570;&#x91CF;&#x66F4;&#x52A0;&#x6709;&#x6548;&#x7387;</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7220971-4f8dea908fb9dd5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</li>
+<li><p>&#x6DF1;&#x5C42;&#x7F51;&#x7EDC;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;</p>
+<ul>
+<li>&#x66F4;&#x6DF1;&#x7684;&#x7F51;&#x7EDC;&#x66F4;&#x5BB9;&#x6613;&#x8FC7;&#x62DF;&#x5408;</li>
+<li>&#x66F4;&#x6DF1;&#x7684;&#x7F51;&#x7EDC;&#x6709;&#x66F4;&#x5927;&#x7684;&#x8BA1;&#x7B97;&#x91CF;<ul>
+<li>&#x7A00;&#x758F;&#x7F51;&#x7EDC;&#x867D;&#x7136;&#x51CF;&#x5C11;&#x4E86;&#x53C2;&#x6570;&#x4F46;&#x6CA1;&#x6709;&#x51CF;&#x5C11;&#x8BA1;&#x7B97;&#x91CF;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>V1&#x7ED3;&#x6784;</p>
+<ul>
+<li><p>&#x5206;&#x7EC4;&#x5377;&#x79EF;</p>
+<p>&#x76F8;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x666E;&#x901A;3*3&#x7684;&#x5377;&#x79EF;&#x6838;&#xFF0C;&#x5728;inception-net&#x4E2D;&#x91C7;&#x7528;&#x4E86;&#x591A;&#x79CD;&#x5377;&#x79EF;&#x6838;&#xFF0C;&#x6BCF;&#x79CD;&#x5377;&#x79EF;&#x6838;&#x90FD;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x6269;&#x5C55;&#xFF08;&#x591A;&#x52A0;&#x4E00;&#x4E9B;&#x5C42;&#xFF09;&#x5F62;&#x6210;&#x4E00;&#x4E2A;&#x7EC4;&#xFF0C;&#x7EC4;&#x548C;&#x7EC4;&#x4E4B;&#x95F4;&#x8BA1;&#x7B97;&#x5C31;&#x4E0D;&#x76F8;&#x4E92;&#x4EA4;&#x53C9;&#x4E86;&#x3002;&#x4E0D;&#x76F8;&#x4E92;&#x4EA4;&#x53C9;&#x5C31;&#x80FD;&#x964D;&#x4F4E;&#x8BA1;&#x7B97;&#x91CF;&#xFF08;&#x76F8;&#x5F53;&#x4E8E;&#x6BCF;&#x4E2A;&#x7EC4;&#x7684;&#x8F93;&#x5165;&#x90FD;&#x4E0D;&#x5305;&#x542B;&#x5176;&#x4ED6;&#x7EC4;&#x7684;&#x8F93;&#x5165;&#xFF09;</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7220971-e58222cf6c523c5d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</li>
+<li><p>Inception&#x4F18;&#x52BF;</p>
+<ul>
+<li>&#x4E00;&#x5C42;&#x4E0A;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x591A;&#x79CD;&#x5377;&#x79EF;&#x6838;,&#x770B;&#x5230;&#x5404;&#x79CD;&#x5C42;&#x7EA7;&#x7684;feature</li>
+<li>&#x4E0D;&#x540C;&#x7EC4;&#x4E4B;&#x95F4;&#x7684;feature&#x4E0D;&#x4EA4;&#x53C9;&#x8BA1;&#x7B97;,&#x51CF;&#x5C11;&#x4E86;&#x8BA1;&#x7B97;&#x91CF;</li>
+</ul>
+</li>
+<li><p>&#x5377;&#x79EF;&#x8BA1;&#x7B97;&#x91CF;</p>
+<ul>
+<li>&#x4E00;&#x4E2A;&#x5377;&#x79EF;&#x5C42;&#x8BA1;&#x7B97;&#x91CF;</li>
+</ul>
+<pre><code> ((kw*kh)*Ci)((oW*Oh)*Co)
+ kw:&#x5377;&#x79EF;&#x6838;&#x7684;&#x5BBD;
+ kh:&#x5377;&#x79EF;&#x6838;&#x7684;&#x9AD8;
+ ow:&#x8F93;&#x51FA;&#x56FE;&#x50CF;&#x7684;&#x5BBD;
+ oh:&#x8F93;&#x51FA;&#x56FE;&#x50CF;&#x7684;&#x9AD8;
+ ci:&#x8F93;&#x5165;&#x7684;&#x901A;&#x9053;&#x6570;
+ co:&#x8F93;&#x51FA;&#x7684;&#x901A;&#x9053;&#x6570;
+</code></pre><p> <img src="https://upload-images.jianshu.io/upload_images/7220971-53b149a8937387bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/7220971-6c48cee197d3a0f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/7220971-29edf068f658ecc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p> &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x4F18;&#x5316;Inception&#x7684;&#x53C2;&#x6570;&#x6570;&#x76EE;&#x548C;&#x8BA1;&#x7B97;&#x91CF;&#xFF0C;&#x8FD9;&#x91CC;Inception&#x6BD4;&#x8F83;&#x9AD8;&#x8FD8;&#x662F;&#x56E0;&#x4E3A;&#x6709;&#x4E00;&#x4E2A;5*5&#x7684;&#x5377;&#x79EF;&#x6838;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;1*1&#x7684;&#x5377;&#x79EF;&#x6838;&#x53BB;&#x4F18;&#x5316;&#x4ED6;&#xFF0C;&#x5148;&#x4F7F;&#x7528;1*1&#x505A;&#x975E;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#xFF0C;&#x5C06;&#x8F93;&#x5165;&#x901A;&#x9053;&#x6570;&#x51CF;&#x5C0F;&#xFF08;&#x6BD4;&#x5982;&#x4ECE;100&#x901A;&#x9053;&#x53D8;&#x6210;25&#x901A;&#x9053;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x505A;5*5&#x7684;&#x5377;&#x79EF;&#xFF0C;&#x56E0;&#x4E3A;&#x8F93;&#x5165;&#x901A;&#x9053;&#x6570;&#x53D8;&#x5C0F;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x53C2;&#x6570;&#x6570;&#x76EE;&#x548C;&#x8BA1;&#x7B97;&#x91CF;&#x80AF;&#x5B9A;&#x4E5F;&#x5C31;&#x53D8;&#x5C0F;&#x4E86;</p>
+</li>
+<li><p>&#x7528;V1&#x7ED3;&#x6784;&#x7EC4;&#x88C5;&#x7F51;&#x7EDC;&#x7ED3;&#x6784;</p>
+<p><img src="../../Users/gaowenfeng/Library/Application Support/typora-user-images/image-20181006121727260.png" alt="image-20181006121727260"></p>
+</li>
+</ul>
+</li>
+<li><p>V2&#x7ED3;&#x6784;</p>
+<ul>
+<li><p>&#x5F15;&#x5165;3*3&#x89C6;&#x91CE;&#x540C;&#x7B49;&#x5377;&#x79EF;&#x66FF;&#x6362;</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7220971-8bc24d4b0d6e86e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</li>
+</ul>
+</li>
+<li><p>v3&#x7ED3;&#x6784;
+ <img src="https://upload-images.jianshu.io/upload_images/7220971-b0e544ad099ccf1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<pre><code>- 3\*3&#x4E0D;&#x662F;&#x6700;&#x5C0F;&#x5377;&#x79EF;
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<pre><code>        - 3\*3 = 1\*3 &#x548C; 3\*1
+        - &#x53C2;&#x6570;&#x964D;&#x4F4E;33%
+</code></pre><ul>
+<li>v4&#x7ED3;&#x6784;</li>
+</ul>
+<pre><code>- &#x5F15;&#x5165;skip connection
+
+   &#x5C31;&#x662F;&#x6B8B;&#x5DEE;&#x94FE;&#x63A5;&#xFF08;inceptionnet&#x548C;resnet&#x7EC4;&#x5408;&#xFF09;
+
+   ![image.png](https://upload-images.jianshu.io/upload_images/7220971-f7a2a6e4a70b493a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+</code></pre><ul>
+<li><h3 id="mobile-net">Mobile Net</h3>
+<p>&#x80FD;&#x591F;&#x4FDD;&#x8BC1;&#x7CBE;&#x5EA6;&#x635F;&#x5931;&#x5728;&#x53EF;&#x63A7;&#x5236;&#x8303;&#x56F4;&#x4E4B;&#x5185;&#xFF0C;&#x53EF;&#x4EE5;&#x5927;&#x5E45;&#x5EA6;&#x964D;&#x4F4E;&#x53C2;&#x6570;&#x6570;&#x76EE;&#x548C;&#x8BA1;&#x7B97;&#x91CF;</p>
+<ul>
+<li><p>&#x6A21;&#x578B;&#x7ED3;&#x6784;</p>
+<ul>
+<li><p>&#x5F15;&#x5165;&#x6DF1;&#x5EA6;&#x53EF;&#x5206;&#x79BB;&#x5377;&#x79EF;</p>
+<p>&#x4E0B;&#x5DE6;&#x56FE;&#x662F;&#x666E;&#x901A;&#x7684;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7ED3;&#x6784;&#xFF0C;&#x4E0B;&#x53F3;&#x56FE;&#x662F;&#x6DF1;&#x5EA6;&#x53EF;&#x5206;&#x79BB;&#x7684;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7ED3;&#x6784;&#xFF0C;&#x5176;&#x4E2D;BN&#x662F;&#x5F52;&#x4E00;&#x5316;&#xFF0C;&#x540E;&#x9762;&#x4F1A;&#x8BB2;</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7220971-38181b219ed82b1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</li>
+<li><p>&#x56DE;&#x987E;InceptionNet</p>
+</li>
+<li><p>&#x5206;&#x5230;&#x6781;&#x81F4;</p>
+<p>&#x9996;&#x5148;&#x4F7F;&#x7528;1*1 &#x7684;&#x5377;&#x79EF;&#x6838;&#x5C06;&#x8F93;&#x5165;&#x53D8;&#x6210;&#x591A;&#x901A;&#x9053;&#xFF0C;&#x7136;&#x540E;&#x4E00;&#x4E2A;&#x5377;&#x79EF;&#x6838;&#x53EA;&#x5173;&#x6CE8;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x901A;&#x9053;&#xFF0C;&#x5173;&#x6CE8;&#x67D0;&#x4E2A;&#x901A;&#x9053;&#x540E;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x901A;&#x9053;&#xFF0C;&#x5728;&#x5C06;&#x6240;&#x6709;&#x8F93;&#x51FA;&#x901A;&#x9053;&#x62FC;&#x63A5;&#xFF0C;&#x964D;&#x4F4E;&#x4E86;&#x6240;&#x6709;&#x5377;&#x79EF;&#x6838;&#x5BF9;&#x8F93;&#x5165;&#x7684;&#x4E00;&#x4E2A;&#x8303;&#x7574;</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7220971-b967bac55c804715.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</li>
+</ul>
+</li>
+<li><p>&#x8BA1;&#x7B97;&#x91CF;&#x5BF9;&#x6BD4;</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7220971-2545c9e26c8ef98a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>&#x4F18;&#x5316;&#x6BD4;&#x4F8B;&#xFF1A;</p>
+<pre><code>(Kw*Kh*Co*OW*Oh + Ci*Co*Ow*Oh) / (Kw*Kh*Ci*Co*OW*Oh) = 1/Ci+1/(Kw*Kh)
+</code></pre><p>&#x6DF1;&#x5EA6;&#x53EF;&#x5206;&#x79BB;&#x5377;&#x79EF;&#x53EF;&#x4EE5;&#x5927;&#x5E45;&#x5EA6;&#x964D;&#x4F4E;&#x53C2;&#x6570;&#x6570;&#x76EE;&#x548C;&#x8BA1;&#x7B97;&#x91CF;&#xFF0C;&#x5F53;&#x7136;&#x8FD9;&#x4E48;&#x5927;&#x5E45;&#x5EA6;&#x7684;&#x964D;&#x4F4E;&#x80AF;&#x5B9A;&#x80FD;&#x591F;&#x4F1A;&#x5E26;&#x6765;&#x7CBE;&#x5EA6;&#x7684;&#x635F;&#x5931;&#xFF0C;&#x4F46;&#x662F;&#x7ECF;&#x8FC7;&#x8BD5;&#x9A8C;&#x8868;&#x660E;&#xFF0C;&#x8FD9;&#x4E2A;&#x635F;&#x5931;&#x662F;&#x53EF;&#x63A7;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x5728;&#x767E;&#x5206;&#x4E4B;10&#x4EE5;&#x5185;</p>
+</li>
+</ul>
+</li>
+<li><h3 id="&#x4E0D;&#x540C;&#x6A21;&#x578B;&#x7ED3;&#x6784;&#x4F18;&#x52A3;&#x5BF9;&#x6BD4;">&#x4E0D;&#x540C;&#x6A21;&#x578B;&#x7ED3;&#x6784;&#x4F18;&#x52A3;&#x5BF9;&#x6BD4;</h3>
+<ul>
+<li><p>&#x6548;&#x679C;&#x5206;&#x6790;</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7220971-5ad6ded3ba6bdf6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</li>
+<li><p>&#x6548;&#x679C;&#x5C42;&#x6B21;&#x5206;&#x6790;</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7220971-94a38d5f2258e979.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</li>
+<li><p>&#x6548;&#x679C;&#x8BA1;&#x7B97;&#x91CF;&#x5206;&#x6790;</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7220971-82c13262d09876df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ul>
+<li><p>&#x6A2A;&#x5750;&#x6807;&#xFF1A;&#x8BA1;&#x7B97;&#x91CF;</p>
+</li>
+<li><p>&#x7EB5;&#x5750;&#x6807;&#xFF1A;&#x7CBE;&#x51C6;&#x7387;</p>
+</li>
+<li><p>&#x5706;&#x5708;&#x5927;&#x5C0F;&#xFF1A;&#x53C2;&#x6570;&#x91CF;&#x591A;&#x5C11;</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
+</ul>
 
                                 
                                 </section>
@@ -630,7 +751,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.2.3 卷积神经网络进阶(inception-mobile-net)","level":"1.5.2.3","depth":3,"next":{"title":"4.2.4  VGG-ResNet实战","level":"1.5.2.4","depth":3,"path":"4.卷积神经网络/4.2 卷积神经网络进阶/4.2.4  VGG-ResNet实战.md","ref":"4.卷积神经网络/4.2 卷积神经网络进阶/4.2.4  VGG-ResNet实战.md","articles":[]},"previous":{"title":"4.2.2 卷积神经网络进阶(Vggnet-Resnet)","level":"1.5.2.2","depth":3,"path":"4.卷积神经网络/4.2 卷积神经网络进阶/4.2.2 卷积神经网络进阶Vggnet-Resnet.md","ref":"4.卷积神经网络/4.2 卷积神经网络进阶/4.2.2 卷积神经网络进阶Vggnet-Resnet.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"4.卷积神经网络/4.2 卷积神经网络进阶/4.2.3 卷积神经网络进阶inception-mobile-net.md","mtime":"2018-10-04T07:25:48.753Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-04T07:27:52.978Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.2.3 卷积神经网络进阶(inception-mobile-net)","level":"1.5.2.3","depth":3,"next":{"title":"4.2.4  VGG-ResNet实战","level":"1.5.2.4","depth":3,"path":"4.卷积神经网络/4.2 卷积神经网络进阶/4.2.4  VGG-ResNet实战.md","ref":"4.卷积神经网络/4.2 卷积神经网络进阶/4.2.4  VGG-ResNet实战.md","articles":[]},"previous":{"title":"4.2.2 卷积神经网络进阶(Vggnet-Resnet)","level":"1.5.2.2","depth":3,"path":"4.卷积神经网络/4.2 卷积神经网络进阶/4.2.2 卷积神经网络进阶Vggnet-Resnet.md","ref":"4.卷积神经网络/4.2 卷积神经网络进阶/4.2.2 卷积神经网络进阶Vggnet-Resnet.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"4.卷积神经网络/4.2 卷积神经网络进阶/4.2.3 卷积神经网络进阶inception-mobile-net.md","mtime":"2018-10-06T05:20:14.179Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-06T07:50:59.902Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
